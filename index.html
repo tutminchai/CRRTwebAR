@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>WebAR 3D Viewer</title>
+
+  <script type="module" src="https://unpkg.com/@google/model-viewer/dist/model-viewer.min.js"></script>
+  <script nomodule src="https://unpkg.com/@google/model-viewer/dist/model-viewer-legacy.js"></script>
+  <script defer src="main.obf.js"></script>
+
+  <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+  <div class="wrapper">
+    <div class="card">
+      <h1>CRRT AR 3D 展示</h1>
+      <p class="subtitle">請使用手機開啟此頁面，點選畫面中的 <strong>AR</strong> 圖示。</p>
+
+      <model-viewer
+        id="arModel"
+        src="models/crrt.glb"
+        ios-src="models/crrt.usdz"
+        alt="3D 模型"
+        ar
+        ar-modes="scene-viewer quick-look webxr"
+        camera-controls
+        auto-rotate
+        autoplay
+        touch-action="pan-y"
+        shadow-intensity="1"
+        exposure="0.9"
+        interaction-prompt="auto">
+      </model-viewer>
+
+      <div id="deviceHint" class="device-hint"></div>
+
+      <div class="hint">
+        <strong>基本操作：</strong><br />
+        ・單指旋轉模型<br />
+        ・兩指縮放模型<br />
+        ・若無 AR 按鈕代表此裝置不支援 AR
+      </div>
+
+      <div class="footer">
+        © 2025 — 國立成功大學醫學院附設醫院 & 台南應用科技大學 & <br>國家科學及技術委員會
+      </div>
+    </div>
+  </div>
+</body>
+</html>
